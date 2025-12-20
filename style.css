@@ -1,17 +1,150 @@
+/* Reset / base */
+* { box-sizing: border-box; }
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b0b0b;
-  color: #eaeaea;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #e6e6e6;
+  background: #080808;
+  line-height: 1.4;
+}
+
+/* Container centré */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header / Nav */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(4px);
+  transition: background 200ms ease, box-shadow 200ms ease;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.site-header.scrolled {
+  background: rgba(0,0,0,0.92);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.brand {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.main-nav a {
+  color: #ddd;
+  margin: 0 14px;
+  text-decoration: none;
+}
+.main-nav a:hover { color: #fff; }
+
+.header-cta .btn.cart {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Pousse le contenu sous l'header fixe */
+.site-content, .hero { padding-top: 70px; }
+
+/* Hero full-bleed */
+.hero {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  /* fond full-bleed : si tu as hero-bg.jpg, il sera utilisé ; sinon on recadre banner-center.png */
+  background: url('image/hero-bg.jpg') center/cover no-repeat;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 10%, rgba(0,0,0,0.75) 100%);
+  pointer-events: none;
+}
+
+/* zone intérieure centrée */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  width: 100%;
   text-align: center;
+  padding: 40px 20px;
 }
 
-h1 {
-  color: #ff2a2a;
-  margin-top: 100px;
+/* image centrale (bannière) */
+.hero-logo {
+  display: inline-block;
+  max-width: 760px;
+  width: 80%;
+  height: auto;
+  margin: 10px auto 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  border-radius: 4px;
 }
 
-p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+/* sous-titre */
+.hero-sub {
+  color: #d2d2d2;
+  font-size: 20px;
+  margin-top: 18px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* socials (exemple) */
+.hero-socials { margin-top: 18px; color: rgba(255,255,255,0.9); font-size: 20px; }
+
+/* CTA bouton */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 0, 0, 0.95);
+  border: none;
+  cursor: pointer;
+  margin-top: 18px;
+}
+.btn-primary { background: #e03131; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero { min-height: 420px; background-position: center top; }
+  .hero-logo { max-width: 600px; width: 90%; }
+  .hero-sub { font-size: 16px; padding: 0 10px; }
+  .main-nav { display: none; } /* simplifier sur mobile */
+}
+@media (max-width: 480px) {
+  .header-inner { height: 60px; }
+  .site-content, .hero { padding-top: 60px; }
+  .hero { min-height: 360px; }
+  .hero-logo { width: 95%; max-width: 360px; }
 }
