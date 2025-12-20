@@ -1,56 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Insider Hack Gaming</title>
-  <style>
-    body {
-      margin: 0;
-      background: #0b0b0b;
-      color: #eaeaea;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    h1 {
-      margin-top: 100px;
-      color: #ff2a2a;
-    }
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-    }
-    .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 15px 25px;
-      background: #1c1c1c;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      border: 1px solid #ff2a2a;
-    }
-    .btn:hover {
-      background: #ff2a2a;
-      color: #000;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <h1>Insider Hack Gaming</h1>
-  <p>Améliore ton skill FPS</p>
+  <!-- Header / Nav (fixe en haut) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand">IHG</a>
+      <nav class="main-nav">
+        <a href="#cheats">Cheats</a>
+        <a href="#guides">Guides</a>
+        <a href="#apropos">À propos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-cta">
+        <button class="btn cart">Panier</button>
+      </div>
+    </div>
+  </header>
 
-  <a class="btn" href="https://www.youtube.com/@InsiderHackGaming" target="_blank">
-    📺 YouTube
-  </a>
+  <!-- Hero full width -->
+  <section class="hero" role="banner" aria-label="Bannière principale">
+    <div class="hero-overlay"></div>
 
-  <a class="btn" href="#" target="_blank">
-    💬 Discord
-  </a>
+    <div class="hero-inner container">
+      <!-- image centrale (bannière) -->
+      <img src="image/banner-center.png" alt="Insider Hack Gaming" class="hero-logo" />
 
-  <a class="btn" href="#">
-    📘 Tutos & Astuces
-  </a>
+      <!-- sous titre -->
+      <p class="hero-sub">
+        Astuces, guides et cheats premium pour dominer vos FPS favoris. Rejoignez la communauté.
+      </p>
 
+      <!-- icônes sociales (exemple) -->
+      <div class="hero-socials" aria-hidden="true">
+        <span class="dot">○</span>
+        <span class="dot">🐦</span>
+        <span class="dot">▶</span>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#cheats" class="btn btn-primary">Voir les packs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenu principal (ton contenu existant) -->
+  <main class="site-content container">
+    <!-- Place ici ton contenu actuel (cartes, produits, guides, etc.) -->
+  </main>
+
+  <script>
+    // Add class when scrolling to change header look
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+  </script>
 </body>
 </html>
